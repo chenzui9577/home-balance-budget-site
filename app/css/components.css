@@ -1,0 +1,90 @@
+/* 通用组件样式：按钮、卡片、进度条、流水条目、弹窗与提示气泡。 */
+.primary-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #fff; border: none; border-radius: 999px;
+  padding: 11px 22px; font-size: 15px; font-weight: 600;
+  box-shadow: 0 6px 16px rgba(200, 90, 36, 0.30);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.primary-btn:hover { transform: translateY(-1px); box-shadow: 0 9px 20px rgba(200, 90, 36, 0.36); }
+.ghost-btn {
+  background: transparent; color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px; font-size: 13px;
+}
+.ghost-btn:hover { color: var(--ink); background: var(--surface-soft); }
+.icon-btn {
+  width: 30px; height: 30px; border-radius: 50%; border: none;
+  background: transparent; color: var(--ink-soft); font-size: 17px; line-height: 1;
+}
+.icon-btn:hover { background: var(--surface-soft); color: var(--ink); }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px;
+}
+.card-title { margin: 0 0 4px; font-size: 16px; font-weight: 700; }
+.card-hint { margin: 0; font-size: 12.5px; color: var(--ink-soft); }
+
+.progress { height: 10px; border-radius: 999px; background: var(--surface-soft); overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--gold), var(--accent)); transition: width 0.6s ease; }
+.progress-fill.ok { background: linear-gradient(90deg, #7db383, var(--green)); }
+.progress-fill.over { background: linear-gradient(90deg, #d97a63, var(--red)); }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 999px; font-size: 12.5px;
+  background: var(--surface-soft); color: var(--ink-soft);
+}
+.chip.warn { background: var(--red-soft); color: var(--red); font-weight: 600; }
+.chip.good { background: var(--green-soft); color: var(--green); font-weight: 600; }
+
+.record-row {
+  display: flex; align-items: center; gap: 14px; padding: 13px 4px;
+  border-bottom: 1px dashed var(--line);
+}
+.record-row:last-child { border-bottom: none; }
+.record-icon {
+  width: 42px; height: 42px; border-radius: 13px; flex: 0 0 42px;
+  display: flex; align-items: center; justify-content: center;
+}
+.record-icon svg { width: 22px; height: 22px; }
+.record-main { flex: 1; min-width: 0; }
+.record-note { font-size: 14.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.record-meta { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+.record-amount { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.record-amount.expense { color: var(--ink); }
+.record-amount.income { color: var(--green); }
+.delete-btn { border: none; background: transparent; color: var(--ink-soft); font-size: 13px; padding: 6px; }
+.delete-btn:hover { color: var(--red); }
+
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(61, 40, 20, 0.45);
+  display: flex; align-items: center; justify-content: center; z-index: 60; padding: 16px;
+}
+.modal-backdrop[hidden] { display: none; }
+.modal-card {
+  background: var(--surface); border-radius: 22px; width: 100%; max-width: 430px;
+  padding: 24px; box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+  max-height: 92vh; overflow-y: auto;
+}
+.modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.modal-head h2 { margin: 0; font-size: 20px; }
+.record-form { display: flex; flex-direction: column; gap: 13px; }
+.type-switch { display: flex; background: var(--surface-soft); border-radius: 999px; padding: 4px; }
+.type-btn { flex: 1; border: none; background: transparent; padding: 9px; border-radius: 999px; font-size: 14.5px; color: var(--ink-soft); }
+.type-btn.active { background: var(--surface); color: var(--accent-deep); font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--ink-soft); }
+.field input, .field select {
+  border: 1px solid var(--line); border-radius: 12px; padding: 11px 13px;
+  font-size: 15px; background: var(--surface); color: var(--ink); outline: none;
+}
+.field input:focus, .field select:focus { border-color: var(--accent); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 4px; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 92px; transform: translateX(-50%);
+  background: var(--ink); color: var(--paper); padding: 11px 20px; border-radius: 999px;
+  font-size: 14px; z-index: 80; box-shadow: var(--shadow);
+}
+.toast[hidden] { display: none; }
+.empty-note { text-align: center; color: var(--ink-soft); padding: 34px 12px; font-size: 14px; line-height: 1.8; }
